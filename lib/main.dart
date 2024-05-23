@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:praxis_test_app/config/router/app_router.dart';
 import 'package:praxis_test_app/config/theme/app_theme.dart';
-import 'package:praxis_test_app/presentation/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Praxis Test App',
-      theme: AppTheme(selectedColor: 6).theme(),
-      home: const HomeScreen()
+      routeInformationParser: appRouter.routeInformationParser,
+      routerDelegate: appRouter.routerDelegate,
+      routeInformationProvider: appRouter.routeInformationProvider,
+      theme: AppTheme(selectedColor: 6).theme()
     );
   }
 }

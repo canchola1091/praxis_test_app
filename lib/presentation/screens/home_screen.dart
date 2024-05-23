@@ -1,4 +1,5 @@
 
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:praxis_test_app/config/item/menu_item.dart';
 // import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
@@ -58,6 +59,8 @@ class _CustomListTile extends StatelessWidget {
       title: Text(menuItem.title),
       subtitle: Text(menuItem.subTitle),
       onTap: () {
+        
+        log('ITEM');
 
         // Navigator.of(context).push(
         //   MaterialPageRoute(
