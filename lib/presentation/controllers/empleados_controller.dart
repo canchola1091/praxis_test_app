@@ -10,8 +10,16 @@ class EmpleadosController  extends GetxController{
 
   final _dio = Dio();
   EmpleadosModel? empleadosModel;
+  List<Employee>? listaEmpleados = [];
+  bool isLosading = true;
 
-  Future<void> getEmpleados() async {
+  @override
+  void onReady() {
+    super.onReady();
+    getEmpleados();
+  }
+
+  Future<List<Employee>?> getEmpleados() async {
 
     try {
 
@@ -22,9 +30,15 @@ class EmpleadosController  extends GetxController{
       empleadosModel = empleadosModelFromJson(encodeResponse);
 
       // log('Response: ${response.data}');
-      log('Response: ${empleadosModel!.data.employees}');
+      // log('Response: ${empleadosModel!.data.employees}');
+      isLosading = false;
+      listaEmpleados =empleadosModel!.data.employees;
+      update(['list-empleados']);
+      return listaEmpleados;
+
     } catch (e) {
-      
+      log('ERROR: $e');
+      return null;
     }
 
     

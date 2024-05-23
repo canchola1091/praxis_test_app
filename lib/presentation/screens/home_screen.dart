@@ -1,5 +1,6 @@
 
 import 'dart:developer';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/config/item/option_item.dart';
@@ -34,7 +35,10 @@ class HomeScreen extends StatelessWidget {
         
               final OptionItem menuItem = appMenuItems[index];
         
-              return _CustomListTile(menuItem: menuItem);
+              return FadeIn(
+                delay: Duration(milliseconds: 70 * index),
+                child: _CustomListTile(menuItem: menuItem)
+              );
             }
           ),
           floatingActionButton: CustomFab( 

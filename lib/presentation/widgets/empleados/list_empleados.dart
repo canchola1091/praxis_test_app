@@ -1,7 +1,8 @@
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:praxis_test_app/config/theme/app_theme.dart';
 import 'package:praxis_test_app/presentation/controllers/empleados_controller.dart';
 
 class ListEmpleados extends StatelessWidget {
@@ -11,21 +12,46 @@ class ListEmpleados extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<EmpleadosController>(
       init: EmpleadosController(),
+      id: 'list-empleados',
       builder: (_) {
-        ListView.separated(
-          itemCount: _.empleadosModel!.data.employees.length,
+        return (_.isLosading)
+        ? const Center(
+          child: CircularProgressIndicator(),
+        )
+        : ListView.separated(
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
+          itemCount: _.listaEmpleados!.length,
           separatorBuilder: (context, i) {
-            return Divider();
+            return Divider(
+              color: colorThemes[2],
+              thickness: 1.5,
+              height: 1.0,
+            );
           },
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text('${_.empleadosModel!.data.employees[index].name}'),
+            final DateTime formatDate = DateTime.fromMicrosecondsSinceEpoch(_.listaEmpleados![index].birthday ?? 1587599581347);
+            return FadeInRight(
+              delay: Duration(milliseconds: 20 * index),
+              child: ListTile(
+                dense: true,
+                leading: CircleAvatar(
+                  backgroundColor: colorThemes[2].withOpacity(0.6),
+                  child: const Icon(Icons.person_2, color: Colors.white,),
+                ),
+                title: Text(
+                 '${_.listaEmpleados![index].lastName} ${_.listaEmpleados![index].name}',
+                  style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
+                ),
+                subtitle: Text(
+                  'Fecha de nacimieento: ${formatDate.toString().split(' ')[0]}',
+                  style: const TextStyle(fontSize: 14.0),
+                ),
+              ),
             );
           },
         );
-        return Center(
-          child: FloatingActionButton(onPressed: () => _.getEmpleados())
-        );
+
       }
     );
   }

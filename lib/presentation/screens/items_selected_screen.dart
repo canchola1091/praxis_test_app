@@ -17,19 +17,17 @@ class ItemsSelectedScreen extends StatelessWidget {
             centerTitle: true,
             title: const Text('Opciones seleccionadas'),
           ),
-          body: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if(_.showCamara) Text('CAMARA'),
-                if(_.showEmpleados) ListEmpleados(),
-                if(_.showNombre) Text('NOMBRE'),
-                if(_.showTelefono) Text('TELEFONO'),
-                if(_.showFechaNac) Text('FECHA'),
-                if(_.showSexo) Text('SEXO'),
-                if(_.showColorFav) Text('COLOR'),
-              ],
-            )
+          body: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if(_.showCamara) Text('CAMARA'),
+              if(_.showEmpleados) Flexible(child: ListEmpleados()),
+              if(_.showNombre) Text('NOMBRE'),
+              if(_.showTelefono) Text('TELEFONO'),
+              if(_.showFechaNac) Text('FECHA'),
+              if(_.showSexo) Text('SEXO'),
+              if(_.showColorFav) Text('COLOR'),
+            ],
           ),
         );
       }
