@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/presentation/controllers/logic_controller.dart';
+import 'package:praxis_test_app/presentation/widgets/empleados/list_empleados.dart';
 
 class ItemsSelectedScreen extends StatelessWidget {
   
@@ -21,7 +22,7 @@ class ItemsSelectedScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if(_.showCamara) Text('CAMARA'),
-                if(_.showEmpleados) Text('EMPLEADOS'),
+                if(_.showEmpleados) ListEmpleados(),
                 if(_.showNombre) Text('NOMBRE'),
                 if(_.showTelefono) Text('TELEFONO'),
                 if(_.showFechaNac) Text('FECHA'),

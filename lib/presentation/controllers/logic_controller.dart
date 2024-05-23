@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/config/item/option_item.dart';
 import 'package:praxis_test_app/presentation/screens/items_selected_screen.dart';
-import 'package:praxis_test_app/presentation/widgets/custom_alert.dart';
+import 'package:praxis_test_app/presentation/widgets/shared/custom_alert.dart';
 
 class LogicController extends GetxController {
 

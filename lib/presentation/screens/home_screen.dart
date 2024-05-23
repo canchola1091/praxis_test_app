@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:praxis_test_app/config/item/option_item.dart';
 import 'package:praxis_test_app/config/theme/app_theme.dart';
 import 'package:praxis_test_app/presentation/controllers/logic_controller.dart';
-import 'package:praxis_test_app/presentation/widgets/custom_fab.dart';
+import 'package:praxis_test_app/presentation/widgets/shared/custom_fab.dart';
 
 class HomeScreen extends StatelessWidget {
 

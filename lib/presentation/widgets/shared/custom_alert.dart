@@ -3,10 +3,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:praxis_test_app/config/theme/app_theme.dart';
-// import 'package:demo_empleados/src/theme/theme.dart' as th;
-// import 'package:demo_empleados/src/utils/utils.dart' as utils;
-// import 'package:demo_empleados/src/widgets/buttons/custom_button.dart';
-// import 'package:demo_empleados/src/widgets/text/custom_text.dart';
 
 class CustomAlert {
 
