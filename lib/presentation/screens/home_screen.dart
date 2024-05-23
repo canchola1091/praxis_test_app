@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/config/item/option_item.dart';
 import 'package:praxis_test_app/config/theme/app_theme.dart';
-import 'package:praxis_test_app/presentation/controllers/home_controller.dart';
+import 'package:praxis_test_app/presentation/controllers/logic_controller.dart';
 import 'package:praxis_test_app/presentation/widgets/custom_fab.dart';
 
 class HomeScreen extends StatelessWidget {

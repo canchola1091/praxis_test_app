@@ -2,6 +2,16 @@
 
 import 'package:flutter/material.dart';
 
+class TitleOption {
+  static const String camara = 'Cámara';
+  static const String listEmpleados = 'Lista de empleados';
+  static const String nombreCompleto = 'Nombre completo';
+  static const String numeroTelefonico = 'Número teléfonico';
+  static const String fechaNacimiento = 'Fecha de nacimiento';
+  static const String sexo = 'Sexo';
+  static const String colorFavorito = 'Color favorito';
+}
+
 class OptionItem {
 
   final String title;
