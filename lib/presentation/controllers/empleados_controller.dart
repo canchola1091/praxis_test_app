@@ -1,7 +1,6 @@
 
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/infraestructure/models/empleados_model.dart';

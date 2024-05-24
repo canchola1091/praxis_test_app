@@ -1,6 +1,6 @@
 
 import 'dart:developer';
-
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/config/item/option_item.dart';
 import 'package:praxis_test_app/presentation/screens/items_selected_screen.dart';
@@ -19,6 +19,8 @@ class LogicController extends GetxController {
   bool showFechaNac = false;
   bool showSexo = false;
   bool showColorFav = false;
+  TextEditingController nameCtrl = TextEditingController();
+  TextEditingController phoneCtrl = TextEditingController();
 
   // ======================================
   /// AGREGA A UNA LISTA [titleOptionSelected]
@@ -91,7 +93,7 @@ class LogicController extends GetxController {
     if(listSelectedOption.contains(TitleOption.colorFavorito)) showColorFav = true;
   }
 
-   // ======================================
+  // ======================================
   /// ESTABLECE VALORRES EN FALSE A LAS VARIABLES 
   /// CORRESPONDIENTES CUANDO SE DESELECCIONAN
   // ======================================
@@ -112,4 +114,13 @@ class LogicController extends GetxController {
 
   }
 
+  // ======================================
+  /// LIMPIA LOS TEXTEDITINGCONTROLLER Y REGRESA
+  /// A HOME PAGE
+  // ======================================
+  void backAndClerTextControllers() {
+    nameCtrl.clear();
+    phoneCtrl.clear();
+    Get.back();
+  }
 }
