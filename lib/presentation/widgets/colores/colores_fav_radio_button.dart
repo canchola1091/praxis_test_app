@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:praxis_test_app/config/theme/app_theme.dart';
 import 'package:praxis_test_app/presentation/controllers/colores_fav_controller.dart';
   
   

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/presentation/controllers/logic_controller.dart';
+import 'package:praxis_test_app/presentation/widgets/camara/camara.dart';
 import 'package:praxis_test_app/presentation/widgets/colores/colores_fav_radio_button.dart';
 import 'package:praxis_test_app/presentation/widgets/empleados/list_empleados.dart';
 import 'package:praxis_test_app/presentation/widgets/genero/genero_radio_button.dart';
@@ -30,7 +31,7 @@ class ItemsSelectedScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if(_.showCamara) Text('CAMARA'),
+                if(_.showCamara) const Camara(),
 
                 if(_.showEmpleados) const Flexible(child: ListEmpleados()),
 
