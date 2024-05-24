@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praxis_test_app/presentation/controllers/logic_controller.dart';
+import 'package:praxis_test_app/presentation/widgets/colores/colores_fav_radio_button.dart';
 import 'package:praxis_test_app/presentation/widgets/empleados/list_empleados.dart';
 import 'package:praxis_test_app/presentation/widgets/genero/genero_radio_button.dart';
 import 'package:praxis_test_app/presentation/widgets/shared/custom_text_field.dart';
@@ -50,9 +51,9 @@ class ItemsSelectedScreen extends StatelessWidget {
 
                 if(_.showFechaNac) Text('FECHA'),
 
-                if(_.showSexo) CustomRadioButton(),
+                if(_.showSexo) const GeneroRadioButton(),
 
-                if(_.showColorFav) Text('COLOR'),
+                if(_.showColorFav) const ColoresFavRadioButton()
               ],
             ),
           ),
