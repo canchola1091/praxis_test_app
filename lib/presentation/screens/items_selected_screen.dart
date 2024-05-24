@@ -5,6 +5,7 @@ import 'package:praxis_test_app/presentation/controllers/logic_controller.dart';
 import 'package:praxis_test_app/presentation/widgets/colores/colores_fav_radio_button.dart';
 import 'package:praxis_test_app/presentation/widgets/empleados/list_empleados.dart';
 import 'package:praxis_test_app/presentation/widgets/genero/genero_radio_button.dart';
+import 'package:praxis_test_app/presentation/widgets/nacimiento/fecha_nacimiento.dart';
 import 'package:praxis_test_app/presentation/widgets/shared/custom_text_field.dart';
 
 class ItemsSelectedScreen extends StatelessWidget {
@@ -49,7 +50,7 @@ class ItemsSelectedScreen extends StatelessWidget {
                   iconPrefix: Icons.phone_android,
                 ),
 
-                if(_.showFechaNac) Text('FECHA'),
+                if(_.showFechaNac) const FechaNacimiento(),
 
                 if(_.showSexo) const GeneroRadioButton(),
 
