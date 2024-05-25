@@ -16,8 +16,21 @@ class GeneroRadioButton extends StatelessWidget {
       builder: (_) {
         return Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(5.0),
+            color: colorThemes[2],
+            child: const Text(
+              'Genero',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20.0
+              )
+            )
+          ),
           ListTile(
+          contentPadding: EdgeInsets.zero,
            title: const Text('Femenino'),
             leading: Radio<int>(
               value: 1,
@@ -31,6 +44,7 @@ class GeneroRadioButton extends StatelessWidget {
           ),
 
           ListTile(
+          contentPadding: EdgeInsets.zero,
            title: const Text('Masculino'),
             leading: Radio<int>(
               value: 2,
@@ -41,7 +55,9 @@ class GeneroRadioButton extends StatelessWidget {
               Icons.male,
               color: colorThemes[2],
             ),
-          )
+          ),
+
+          const SizedBox(height: 20.0)
           
         ]
         );

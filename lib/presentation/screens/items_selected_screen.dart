@@ -28,35 +28,39 @@ class ItemsSelectedScreen extends StatelessWidget {
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if(_.showCamara) const Camara(),
-
-                if(_.showEmpleados) const Flexible(child: ListEmpleados()),
-
-                if(_.showNombre) CustomTextField(
-                  fieldController: _.nameCtrl,
-                  maxCaracteres: 35,
-                  textHint: 'Nombre completo',
-                  iconPrefix: Icons.person,
-                  capitalization: TextCapitalization.words,
-                ),
-
-                if(_.showTelefono) CustomTextField(
-                  fieldController: _.phoneCtrl,
-                  onlyNumbers: true,
-                  maxCaracteres: 10,
-                  textHint: 'Nombre completo',
-                  iconPrefix: Icons.phone_android,
-                ),
-
-                if(_.showFechaNac) const FechaNacimiento(),
-
-                if(_.showSexo) const GeneroRadioButton(),
-
-                if(_.showColorFav) const ColoresFavRadioButton()
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if(_.showCamara) const Camara(),
+              
+                  if(_.showEmpleados) const Flexible(child: ListEmpleados()),
+              
+                  if(_.showNombre) CustomTextField(
+                    nameTitle: 'Nombre completo',
+                    fieldController: _.nameCtrl,
+                    maxCaracteres: 35,
+                    textHint: 'Nombre completo',
+                    iconPrefix: Icons.person,
+                    capitalization: TextCapitalization.words,
+                  ),
+              
+                  if(_.showTelefono) CustomTextField(
+                    nameTitle: 'Número teléfonico',
+                    fieldController: _.phoneCtrl,
+                    onlyNumbers: true,
+                    maxCaracteres: 10,
+                    textHint: 'Número teléfonico',
+                    iconPrefix: Icons.phone_android,
+                  ),
+              
+                  if(_.showFechaNac) const FechaNacimiento(),
+              
+                  if(_.showSexo) const GeneroRadioButton(),
+              
+                  if(_.showColorFav) const ColoresFavRadioButton()
+                ],
+              ),
             ),
           ),
         );
@@ -64,3 +68,4 @@ class ItemsSelectedScreen extends StatelessWidget {
     );
   }
 }
+

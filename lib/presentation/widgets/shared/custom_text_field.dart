@@ -5,6 +5,7 @@ import 'package:praxis_test_app/config/theme/app_theme.dart';
 
 class CustomTextField extends StatelessWidget {
 
+  final String nameTitle;
   final String textHint;
   final bool isOnclick;
   final bool hasCounter;
@@ -19,6 +20,7 @@ class CustomTextField extends StatelessWidget {
 
   const CustomTextField({
     super.key, 
+    required this.nameTitle,
     this.textHint = '',
     this.isOnclick = false,
     this.hasCounter = false,
@@ -34,49 +36,67 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      inputFormatters: (!onlyNumbers)
-      ? [
-        FilteringTextInputFormatter.deny(RegExp('[0-9]')),
-      ]
-      : [
-        FilteringTextInputFormatter.deny(RegExp('[a-zA-Z]')),
-        LengthLimitingTextInputFormatter(maxCaracteres),
-      ],
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: typeKeyboard,
-      textCapitalization: capitalization,
-      controller: fieldController,
-      // validator: validation,
-      cursorColor: colorThemes[2],
-      decoration: InputDecoration(
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: colorThemes[2],
-            width: 2.0
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(5.0),
+          color: colorThemes[2],
+          child: Text(
+            nameTitle,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20.0
+            ),
+          ),
+        ),
+        TextFormField(
+          inputFormatters: (!onlyNumbers)
+          ? [
+            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+          ]
+          : [
+            FilteringTextInputFormatter.deny(RegExp('[a-zA-Z]')),
+            LengthLimitingTextInputFormatter(maxCaracteres),
+          ],
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          keyboardType: typeKeyboard,
+          textCapitalization: capitalization,
+          controller: fieldController,
+          // validator: validation,
+          cursorColor: colorThemes[2],
+          decoration: InputDecoration(
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: colorThemes[2],
+                width: 2.0
+              )
+            ),
+            hintText: textHint,
+            labelStyle: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w400,
+              color: colorThemes[2]
+            ),
+            prefixIcon: (iconPrefix != null)
+            ? Icon(iconPrefix, color: colorThemes[2])
+            : null,
+            counterStyle: TextStyle(
+              fontSize: 11.0,
+              color: colorThemes[2]
+            ),
+            floatingLabelBehavior: floatingLabel,
+          ),
+          maxLength: maxCaracteres,
+          style: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w400,
+            color: colorThemes[2]
           )
         ),
-        hintText: textHint,
-        labelStyle: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w400,
-          color: colorThemes[2]
-        ),
-        prefixIcon: (iconPrefix != null)
-        ? Icon(iconPrefix, color: colorThemes[2])
-        : null,
-        counterStyle: TextStyle(
-          fontSize: 11.0,
-          color: colorThemes[2]
-        ),
-        floatingLabelBehavior: floatingLabel,
-      ),
-      maxLength: maxCaracteres,
-      style: TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.w400,
-        color: colorThemes[2]
-      )
+        const SizedBox(height: 20.0)
+      ],
     );
   }
 }

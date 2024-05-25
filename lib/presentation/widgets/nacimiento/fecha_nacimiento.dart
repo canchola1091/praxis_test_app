@@ -14,24 +14,42 @@ class FechaNacimiento extends StatelessWidget {
       id: 'fecha',
       builder: (_) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
           children: [
+            Container(
+              padding: const EdgeInsets.all(5.0),
+              color: colorThemes[2],
+              child: const Text(
+                'Fecha de nacimiento',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0
+                )
+              )
+            ),
+            const SizedBox(height: 15.0),
             Center(
               child: ElevatedButton(
                 onPressed: _.selectDate,
                 child: const Text('Selecciona fecha'),
               ),
             ),
-            const SizedBox(height: 30.0),
+            const SizedBox(height: 20.0),
             (_.showDate)
-            ? Text(
-              _.selectedDate.toString().split(' ').first,
-              style: TextStyle(
-                color: colorThemes[2],
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500
+            ? Align(
+              alignment: Alignment.center,
+              child: Text(
+                _.selectedDate.toString().split(' ').first,
+                style: TextStyle(
+                  color: colorThemes[2],
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w500
+                ),
               ),
             )
-            : const SizedBox.shrink()
+            : const SizedBox.shrink(),
+            const SizedBox(height: 20.0)
           ],
         );
       }

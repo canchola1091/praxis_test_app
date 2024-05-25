@@ -18,38 +18,56 @@ class ListEmpleados extends StatelessWidget {
         ? const Center(
           child: CircularProgressIndicator(),
         )
-        : ListView.separated(
-          shrinkWrap: true,
-          physics: const BouncingScrollPhysics(),
-          itemCount: _.listaEmpleados!.length,
-          separatorBuilder: (context, i) {
-            return Divider(
+        : Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(5.0),
               color: colorThemes[2],
-              thickness: 1.5,
-              height: 1.0,
-            );
-          },
-          itemBuilder: (context, index) {
-            final DateTime formatDate = DateTime.fromMicrosecondsSinceEpoch(_.listaEmpleados![index].birthday ?? 1587599581347);
-            return FadeInRight(
-              delay: Duration(milliseconds: 20 * index),
-              child: ListTile(
-                dense: true,
-                leading: CircleAvatar(
-                  backgroundColor: colorThemes[2].withOpacity(0.6),
-                  child: const Icon(Icons.person_2, color: Colors.white,),
-                ),
-                title: Text(
-                 '${_.listaEmpleados![index].lastName} ${_.listaEmpleados![index].name}',
-                  style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
-                ),
-                subtitle: Text(
-                  'Fecha de nacimieento: ${formatDate.toString().split(' ')[0]}',
-                  style: const TextStyle(fontSize: 14.0),
+              child: const Text(
+                'Lista empleados',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0
                 ),
               ),
-            );
-          },
+            ),
+            ListView.separated(
+              shrinkWrap: true,
+              physics: const BouncingScrollPhysics(),
+              itemCount: _.listaEmpleados!.length,
+              separatorBuilder: (context, i) {
+                return Divider(
+                  color: colorThemes[2],
+                  thickness: 1.5,
+                  height: 1.0,
+                );
+              },
+              itemBuilder: (context, index) {
+                final DateTime formatDate = DateTime.fromMicrosecondsSinceEpoch(_.listaEmpleados![index].birthday ?? 1587599581347);
+                return FadeInRight(
+                  delay: Duration(milliseconds: 20 * index),
+                  child: ListTile(
+                    dense: true,
+                    leading: CircleAvatar(
+                      backgroundColor: colorThemes[2].withOpacity(0.6),
+                      child: const Icon(Icons.person_2, color: Colors.white,),
+                    ),
+                    title: Text(
+                     '${_.listaEmpleados![index].lastName} ${_.listaEmpleados![index].name}',
+                      style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
+                    ),
+                    subtitle: Text(
+                      'Fecha de nacimieento: ${formatDate.toString().split(' ')[0]}',
+                      style: const TextStyle(fontSize: 14.0),
+                    ),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 20.0)
+          ],
         );
 
       }

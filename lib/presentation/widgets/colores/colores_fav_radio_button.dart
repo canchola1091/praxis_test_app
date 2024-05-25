@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:praxis_test_app/config/theme/app_theme.dart';
 import 'package:praxis_test_app/presentation/controllers/colores_fav_controller.dart';
   
   
@@ -15,10 +16,24 @@ class ColoresFavRadioButton extends StatelessWidget {
       builder: (_) {
         return Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
 
+          Container(
+            padding: const EdgeInsets.all(5.0),
+            color: colorThemes[2],
+            child: const Text(
+              'Colore favorito',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20.0
+              )
+            )
+          ),
+
             ListTile(
-             title: const Text('Oragnge'),
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Oragnge'),
               leading: Radio<int>(
                 value: 1,
                 groupValue: _.colorSelectedOption,
@@ -32,7 +47,8 @@ class ColoresFavRadioButton extends StatelessWidget {
             ),
 
             ListTile(
-             title: const Text('Green'),
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Green'),
               leading: Radio<int>(
                 value: 2,
                 groupValue: _.colorSelectedOption,
@@ -46,7 +62,8 @@ class ColoresFavRadioButton extends StatelessWidget {
             ),
 
             ListTile(
-             title: const Text('Pink'),
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Pink'),
               leading: Radio<int>(
                 value: 3,
                 groupValue: _.colorSelectedOption,
@@ -60,7 +77,8 @@ class ColoresFavRadioButton extends StatelessWidget {
             ),
 
             ListTile(
-             title: const Text('Blue'),
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Blue'),
               leading: Radio<int>(
                 value: 4,
                 groupValue: _.colorSelectedOption,
@@ -74,7 +92,8 @@ class ColoresFavRadioButton extends StatelessWidget {
             ),
 
             ListTile(
-             title: const Text('Red'),
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Red'),
               leading: Radio<int>(
                 value: 5,
                 groupValue: _.colorSelectedOption,
